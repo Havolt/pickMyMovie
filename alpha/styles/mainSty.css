@@ -1,0 +1,72 @@
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+}
+
+.pageTitle{
+    color: rgb(63, 60, 255);
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 0 0 2px white;
+    text-align: center;
+}
+
+.moviesIn{
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.moviesInput{
+    font-size: 1.4em;
+}
+
+.moviesButton{
+    font-size: 1.4em;
+}
+
+.userAllMovies{
+    border: 1px solid rgb(80, 80, 80);
+    padding: 4px;
+    width: 100%;
+    margin-top: 20px;   
+}
+
+.userAllMovies > div{
+    display: inline-block;
+}
+
+.userMovieCn{
+    border: 1px solid rgb(168, 168, 168);
+    display: inline-block;
+    padding: 3px 12px 3px 12px;
+    position: relative;
+    background: white;
+    margin-right: 4px;
+    margin-bottom: 2px;
+}
+
+.userMovieCross{
+    float: right;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    font-size: 0.9em;
+    color: grey;
+}
+
+.userMovieCross:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.userMovieName{
+    font-size: 1.2em;
+}
+
+.redBorder{
+    border: 1px solid red;
+}

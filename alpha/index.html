@@ -11,8 +11,19 @@
 <body>
 
     <div id="vApp" class="vApp">
-        <input placeholder="Enter film.." v-model="userMovieInput" type="text"><button v-on:click="addFilmFunc">{{ buttonTxt }}</button>
-        <div v-for="movie in userMovies">{{ movie }}</div>
+        <div class="pageTitle">{{ pageTitle }}</div>
+        <div class="moviesIn">
+            <input class="moviesInput" v-on:keyup.enter="addFilmFunc" placeholder="Enter film.." v-model="userMovieInput" type="text">
+            <button class="moviesButton" v-on:click="addFilmFunc">{{ buttonTxt }}</button>
+        </div>
+        <div class="userAllMovies">
+            <div v-for="movie in userMovies"> 
+                <div class="userMovieCn"> 
+                    <div class="userMovieName">{{ movie }}</div> 
+                    <div class="userMovieCross" v-on:mouseover="crossMOver" v-on:mouseout="crossMOff">&times;</div>
+                </div> 
+            </div>
+        </div>
     </div>
     
 
