@@ -29,9 +29,10 @@
                 </div>
             </div>
             <div class="radioSearchButtons">
-                    <input name="searchType" type="radio"><div class="radText">Shortest</div>
-                    <input name="searchType" type="radio"><div class="radText">Highest Rated</div>
-                    <input name="searchType" type="radio"><div class="radText">Random</div>
+                    <input class="radBut" name="searchType" type="radio" checked="checked"><div class="radText" >Shortest</div>
+                    <input class="radBut" name="searchType" type="radio"><div class="radText">Top Rated</div>
+                    <input class="radBut" name="searchType" type="radio"><div class="radText">Random</div>
+                    <button class="searchButton" @click="searchMovies">Pick Film</button>
             </div>
         </div>
 

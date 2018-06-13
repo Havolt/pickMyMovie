@@ -44,10 +44,18 @@ let vm = new Vue({
                     item.num--;
                 }
             })
-
-
-
             this.userHiddenToggle(document.querySelector('.movieSearchSec'));
+        },
+        searchMovies: function(){
+            let vals = document.getElementsByName('searchType');
+            let checkedVal = 0;
+
+            vals.forEach(function(item, int){
+                if(item.checked){
+                    checkedVal = int;
+                }
+            })
+            console.log(checkedVal)
         }
         
     }
