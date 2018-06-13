@@ -1,6 +1,5 @@
 
 
-
 let vm = new Vue({
     el: '#vApp',
     data: {
@@ -8,7 +7,10 @@ let vm = new Vue({
         pageTitle: 'Pick My Movie',
         buttonTxt: 'Add Film',
         userMovies: [],
-        userMovieInput: ''
+        userMovieInput: '',
+        movieResults: [],
+        userWant: 0,
+        moviesBestOrder: []
     },
     methods: {
         addFilmFunc: function(){
@@ -48,14 +50,62 @@ let vm = new Vue({
         },
         searchMovies: function(){
             let vals = document.getElementsByName('searchType');
-            let checkedVal = 0;
+
 
             vals.forEach(function(item, int){
                 if(item.checked){
-                    checkedVal = int;
+                    vm.userWant = int;
                 }
             })
-            console.log(checkedVal)
+            this.userMovies.map(function(item){
+                vm.searchAPI(item);
+            })
+        },
+        searchAPI: function(obj){
+            let newScr = document.createElement('script');
+            newScr.src = "http://www.omdbapi.com/?i=tt3896198&apikey=b7594f35&t=" + obj.name + "&callback=vm.searchCallback";
+            document.body.appendChild(newScr);
+        },
+        searchCallback: function(data){
+            if(data.Response == 'True'){
+                vm.movieResults.push(data);
+            }
+            else{
+                vm.movieResults.push({badTitle: true});
+            }
+
+            if(vm.movieResults.length == vm.userMovies.length){ this.pickFilm()};
+        },
+        pickFilm: function(){
+            console.log(vm.userWant);
+            console.log(vm.movieResults);
+
+
+            if(vm.userWant == 0){
+                vm.movieResults.map(function(item, int){
+                    if(int == 0){
+                        vm.moviesBestOrder.push(item);
+                        console.log(int)
+                    }else{
+                        let runTime = parseInt(item.Runtime);
+                        vm.moviesBestOrder.map(function(item2, int2){
+                        let currFinished = false;
+                        if((parseInt(item2.Runtime) > runTime && !currFinished)){
+                            vm.moviesBestOrder.splice(int2, 0, item);
+                            currFinished = true;
+                        }else if(int2 == vm.moviesBestOrder.length-1 && !currFinished){
+                            vm.moviesBestOrder.push(item);
+                        }
+                        })
+                    }
+                    
+                })
+            }else if(vm.userWant == 1){
+
+            }else if(vm.userWant == 2){
+
+            }
+            console.log(vm.moviesBestOrder);
         }
         
     }
