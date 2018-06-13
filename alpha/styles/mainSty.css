@@ -29,9 +29,9 @@ body{
 }
 
 .userAllMovies{
-    border: 1px solid rgb(80, 80, 80);
+    border: 1px solid rgb(105, 105, 105);
+    background: rgb(210, 214, 216);
     padding: 4px;
-    width: 100%;
     margin-top: 20px;   
 }
 
@@ -67,8 +67,22 @@ body{
     font-size: 1.2em;
 }
 
+.movieSearchSec{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.radioSearchButtons{
+    float: right;
+}
+
+.radText{
+    display: inline-block;
+}
+
 .redBorder{
-    border: 1px solid red;
+    border: 1px solid rgb(230, 66, 66);
+    background: rgb(231, 222, 222);
 }
 
 

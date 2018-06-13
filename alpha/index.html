@@ -16,13 +16,27 @@
             <input class="moviesInput" v-on:keyup.enter="addFilmFunc" placeholder="Enter film.." v-model="userMovieInput" type="text">
             <button class="moviesButton" v-on:click="addFilmFunc">{{ buttonTxt }}</button>
         </div>
-        <div class="userAllMovies pmHidden">
-            <div v-for="movie in userMovies"> 
-                <div class="userMovieCn"> 
-                    <div class="userMovieName">{{ movie.name }}</div> 
-                    <div v-bind:value="movie.num" class="userMovieCross" v-on:mouseover="crossMOver" v-on:mouseout="crossMOff" @click="deleteMovie">&times;</div>
-                </div> 
+
+        <div class="movieSearchSec pmHidden">
+            <div class="userAllMovies">
+                <div v-for="movie in userMovies"> 
+                    <div class="userMovieCn"> 
+                        <div class="userMovieName">{{ movie.name }}</div> 
+                        <div v-bind:value="movie.num" class="userMovieCross" v-on:mouseover="crossMOver" v-on:mouseout="crossMOff" @click="deleteMovie">&times;</div>
+                    </div>
+                    <div class="searchCn">
+                    </div> 
+                </div>
             </div>
+            <div class="radioSearchButtons">
+                    <input name="searchType" type="radio"><div class="radText">Shortest</div>
+                    <input name="searchType" type="radio"><div class="radText">Highest Rated</div>
+                    <input name="searchType" type="radio"><div class="radText">Random</div>
+            </div>
+        </div>
+
+        <div class="movieResults">
+            <div></div>
         </div>
     </div>
     

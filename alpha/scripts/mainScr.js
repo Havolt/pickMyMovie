@@ -18,7 +18,7 @@ let vm = new Vue({
                 newObj.num = this.userMovies.length;
                 this.userMovies.push(newObj);
                 this.userMovieInput = '';
-                this.userHiddenToggle(document.querySelector('.userAllMovies'));
+                this.userHiddenToggle(document.querySelector('.movieSearchSec'));
             }
         },
         crossMOver: function(e){
@@ -47,7 +47,7 @@ let vm = new Vue({
 
 
 
-            this.userHiddenToggle(document.querySelector('.userAllMovies'));
+            this.userHiddenToggle(document.querySelector('.movieSearchSec'));
         }
         
     }
