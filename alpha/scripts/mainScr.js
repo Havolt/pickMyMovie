@@ -15,6 +15,7 @@ let vm = new Vue({
             if(this.userMovieInput.length > 1){
                 this.userMovies.push(this.userMovieInput);
                 this.userMovieInput = '';
+                this.userHiddenToggle(document.querySelector('.userAllMovies'));
             }
         },
         crossMOver: function(e){
@@ -22,6 +23,15 @@ let vm = new Vue({
         },
         crossMOff: function(e){
             e.target.parentElement.classList.remove('redBorder');
+        },
+        userHiddenToggle: function(el){
+
+            if(this.userMovies.length < 1){
+                el.classList.add('pmHidden');
+            }else{
+                el.classList.remove('pmHidden');
+            }
+
         }
     }
 });
