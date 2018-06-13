@@ -13,7 +13,10 @@ let vm = new Vue({
     methods: {
         addFilmFunc: function(){
             if(this.userMovieInput.length > 1){
-                this.userMovies.push(this.userMovieInput);
+                let newObj = {};
+                newObj.name = this.userMovieInput;
+                newObj.num = this.userMovies.length;
+                this.userMovies.push(newObj);
                 this.userMovieInput = '';
                 this.userHiddenToggle(document.querySelector('.userAllMovies'));
             }
@@ -32,7 +35,21 @@ let vm = new Vue({
                 el.classList.remove('pmHidden');
             }
 
+        },deleteMovie: function(e){
+            console.log(e.target.attributes.value.value)
+
+            this.userMovies.splice(e.target.attributes.value.value, 1);
+            this.userMovies.map(function(item){
+                if(item.num >= e.target.attributes.value.value){
+                    item.num--;
+                }
+            })
+
+
+
+            this.userHiddenToggle(document.querySelector('.userAllMovies'));
         }
+        
     }
 });
 

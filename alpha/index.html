@@ -19,8 +19,8 @@
         <div class="userAllMovies pmHidden">
             <div v-for="movie in userMovies"> 
                 <div class="userMovieCn"> 
-                    <div class="userMovieName">{{ movie }}</div> 
-                    <div class="userMovieCross" v-on:mouseover="crossMOver" v-on:mouseout="crossMOff">&times;</div>
+                    <div class="userMovieName">{{ movie.name }}</div> 
+                    <div v-bind:value="movie.num" class="userMovieCross" v-on:mouseover="crossMOver" v-on:mouseout="crossMOff" @click="deleteMovie">&times;</div>
                 </div> 
             </div>
         </div>
