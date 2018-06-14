@@ -11,7 +11,7 @@ let vm = new Vue({
         movieResults: [],
         userWant: 0,
         moviesBestOrder: [],
-        chosenMovieInfo: {name: '', genre: '', runTime: '', director: '', actors: '', year: '', rating: '', posterLink: '', plot: '', score: ''}
+        chosenMovieInfo: {name: '', genre: '', runTime: '', director: '', actors: '', year: '', rating: '', posterLink: '', plot: '', score: '<i class="fas fa-star"></i>'}
     },
     methods: {
         addFilmFunc: function(){
@@ -102,7 +102,25 @@ let vm = new Vue({
                     
                 })
             }else if(vm.userWant == 1){
-
+                vm.movieResults.map(function(item, int){
+                    if(int == 0){
+                        vm.moviesBestOrder.push(item);
+                    }else{
+                        let score = parseFloat(item.imdbRating);
+                        vm.moviesBestOrder.map(function(item2, int2){
+                            let currFinished = false;
+                            console.log(score, ' score', item2.imdbRating, 'oldFilm')
+                            if((parseFloat(item2.imdbRating) < score && !currFinished)){
+                                vm.moviesBestOrder.splice(int2, 0, item);
+                                currFinished = true;
+                            }else if(int2 == vm.moviesBestOrder.length-1 && !currFinished){
+                                vm.moviesBestOrder.push(item);
+                                currFinished = true;
+                            }
+                        })
+                    }
+                    
+                })
             }else if(vm.userWant == 2){
 
             }
@@ -129,6 +147,9 @@ let vm = new Vue({
             vm.chosenMovieInfo.posterLink = film.Poster;
             vm.chosenMovieInfo.plot = film.Plot;
 
+            if(vm.chosenMovieInfo.rating/2 > 1){
+                vm.chosenMovieInfo.score = '';
+            }
             for(let i = 1; i <= vm.chosenMovieInfo.rating/2; i++){
 
                 vm.chosenMovieInfo.score += '<i class="fas fa-star"></i>';
