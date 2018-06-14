@@ -11,7 +11,7 @@ let vm = new Vue({
         movieResults: [],
         userWant: 0,
         moviesBestOrder: [],
-        chosenMovieInfo: {name: '', genre: '', runTime: '', director: '', actors: '', year: '', rating: '', posterLink: ''}
+        chosenMovieInfo: {name: '', genre: '', runTime: '', director: '', actors: '', year: '', rating: '', posterLink: '', plot: '', score: ''}
     },
     methods: {
         addFilmFunc: function(){
@@ -127,6 +127,16 @@ let vm = new Vue({
             vm.chosenMovieInfo.year = film.Year;
             vm.chosenMovieInfo.rating = parseInt(film.imdbRating);
             vm.chosenMovieInfo.posterLink = film.Poster;
+            vm.chosenMovieInfo.plot = film.Plot;
+
+            for(let i = 1; i <= vm.chosenMovieInfo.rating/2; i++){
+
+                vm.chosenMovieInfo.score += '<i class="fas fa-star"></i>';
+                if((vm.chosenMovieInfo.rating/2 - i) < 1 && (vm.chosenMovieInfo.rating/2 - i) >= 0.5 ){
+                    vm.chosenMovieInfo.score += '<i class="fas fa-star-half"></i>';
+                }
+            }
+            console.log(vm.chosenMovieInfo.rating)
 
             document.querySelector('.movieResults').classList.remove('pmHidden');
         }

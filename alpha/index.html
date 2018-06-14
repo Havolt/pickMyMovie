@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pick My Movie</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <link rel="stylesheet" href="styles/mainSty.css">
 </head>
@@ -47,9 +48,17 @@
                     </div>
                     <div class="infoDetails">
                         <div>{{ chosenMovieInfo.year }}</div>
+                        <div>&bull;</div>
                         <div>{{ chosenMovieInfo.genre }}</div>
+                        <div>&bull;</div>
                         <div>{{ chosenMovieInfo.runTime }}</div>
                     </div>
+                    <div class="infoPlot">{{ chosenMovieInfo.plot }}</div>
+                    <div class="infoPeople">
+                        <div><span class="pmBold">Director:</span></b>{{ chosenMovieInfo.director }}</div>
+                        <div><span class="pmBold">Cast:</span></b>{{ chosenMovieInfo.actors }}</div>
+                    </div>
+                    <div class="infoScore" v-html="chosenMovieInfo.score"></div>
                 </div>
             </div>
         </div>
