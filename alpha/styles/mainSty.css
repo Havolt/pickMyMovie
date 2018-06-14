@@ -8,11 +8,18 @@ button:hover{
     cursor: pointer;
 }
 
+.vApp{
+    width: 90%;
+    margin: 0 auto;
+    box-align: center;
+    max-width: 1024px;
+}
+
 .pageTitle{
     color:  rgb(56, 144, 189);
     font-size: 3em;
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgb(117, 117, 117);
+    text-shadow: 1px 1px 2px rgb(185, 185, 185);
     text-align: center;
     margin-top: 40px; 
 }
@@ -73,7 +80,6 @@ button:hover{
 }
 
 .movieSearchSec{
-    width: 90%;
     margin: 0 auto;
 }
 
@@ -104,7 +110,34 @@ button:hover{
     display: inline-block;
 }
 
+.movieResults{
+    background: rgb(56, 144, 189);
+    margin-top: 60px;
+    padding: 20px 0;
+    border-radius: 4px;
+}
 
+.movieInfo{
+    width: 90%;
+    margin: 0 auto;
+    background: white;
+}
+
+.infoPoster{
+    width: 33%;
+    display: inline-block;
+}
+
+.infoPoster > img {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.infoMain{
+    width: auto;
+    display: inline-block
+}
 
 
 .redBorder{

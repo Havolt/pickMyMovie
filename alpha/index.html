@@ -36,11 +36,24 @@
             </div>
         </div>
 
-        <div class="movieResults">
+        <div class="movieResults pmHidden">
             <div class="movieInfo">
-                
+                <div class="infoPoster">
+                    <img v-bind:src="chosenMovieInfo.posterLink" alt="">
+                </div>
+                <div class="infoMain">
+                    <div class="infoTitle">
+                        <div>{{ chosenMovieInfo.name }}</div>
+                    </div>
+                    <div class="infoDetails">
+                        <div>{{ chosenMovieInfo.year }}</div>
+                        <div>{{ chosenMovieInfo.genre }}</div>
+                        <div>{{ chosenMovieInfo.runTime }}</div>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
     
 
