@@ -14,10 +14,11 @@ button:hover{
     font-weight: bold;
     text-shadow: 1px 1px 2px rgb(117, 117, 117);
     text-align: center;
+    margin-top: 40px; 
 }
 
 .moviesIn{
-    margin: 0 auto;
+    margin: 12px auto;
     display: flex;
     text-align: center;
     align-items: center;
@@ -102,6 +103,9 @@ button:hover{
 .radText{
     display: inline-block;
 }
+
+
+
 
 .redBorder{
     border: 1px solid rgb(230, 66, 66);

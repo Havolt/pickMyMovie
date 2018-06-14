@@ -10,7 +10,8 @@ let vm = new Vue({
         userMovieInput: '',
         movieResults: [],
         userWant: 0,
-        moviesBestOrder: []
+        moviesBestOrder: [],
+        chosenMovieInfo: {}
     },
     methods: {
         addFilmFunc: function(){
@@ -85,17 +86,17 @@ let vm = new Vue({
                 vm.movieResults.map(function(item, int){
                     if(int == 0){
                         vm.moviesBestOrder.push(item);
-                        console.log(int)
                     }else{
                         let runTime = parseInt(item.Runtime);
                         vm.moviesBestOrder.map(function(item2, int2){
-                        let currFinished = false;
-                        if((parseInt(item2.Runtime) > runTime && !currFinished)){
-                            vm.moviesBestOrder.splice(int2, 0, item);
-                            currFinished = true;
-                        }else if(int2 == vm.moviesBestOrder.length-1 && !currFinished){
-                            vm.moviesBestOrder.push(item);
-                        }
+                            let currFinished = false;
+                            if((parseInt(item2.Runtime) > runTime && !currFinished)){
+                                vm.moviesBestOrder.splice(int2, 0, item);
+                                currFinished = true;
+                            }else if(int2 == vm.moviesBestOrder.length-1 && !currFinished){
+                                vm.moviesBestOrder.push(item);
+                                currFinished = true;
+                            }
                         })
                     }
                     
@@ -105,7 +106,22 @@ let vm = new Vue({
             }else if(vm.userWant == 2){
 
             }
+            let tmpArr = [];
+            vm.moviesBestOrder.map(function(item, int){
+                if(!item.badTitle){
+                    tmpArr.push(item);
+                }
+            })
+            vm.moviesBestOrder = tmpArr;
             console.log(vm.moviesBestOrder);
+            if(vm.moviesBestOrder.length > 0){
+                getFilm(vm.moviesBestOrder[0]);
+            }
+        },
+        getFilm(film){
+            vm.chosenMovieInfo.name = item.Title;
+            vm.chosenMovieInfo.genre = item.Genre;
+            vm.chosenMovieInfo.runTime = item.Runtime
         }
         
     }
