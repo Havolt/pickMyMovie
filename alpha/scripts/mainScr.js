@@ -131,9 +131,8 @@ let vm = new Vue({
                     
                 })
             }else if(vm.userWant == 2){
-                while(vm.chosenMovieInfo.name == '' || vm.movieResults.length < 1){
+                while(vm.chosenMovieInfo.name == '' && vm.movieResults.length > 0){
                     let rNum = Math.floor(Math.random() * vm.movieResults.length);
-                    console.log(rNum);
                     if(vm.movieResults[rNum].Response == 'True'){
                         vm.getFilm(vm.movieResults[rNum]);
                     }else{
