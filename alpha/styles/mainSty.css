@@ -64,7 +64,7 @@ button:hover{
     border: 1px solid rgb(105, 105, 105);
     background: rgb(210, 214, 216);
     padding: 4px;
-    margin-top: 20px;   
+    margin-top: 20px;
 }
 
 .userAllMovies > div{
@@ -204,6 +204,10 @@ button:hover{
 .redBorder{
     border: 1px solid rgb(230, 66, 66);
     background: rgb(231, 222, 222);
+}
+
+.fadeRadTxt{
+    color: rgb(190, 207, 216);
 }
 
 

@@ -183,6 +183,21 @@ let vm = new Vue({
             this.userWant = 0;
             this.moviesBestOrder = [];
             document.querySelector('.movieSearchSec').classList.add('pmHidden');
+        },
+        checkRadTxtColor: function(e){
+            
+            document.querySelectorAll('.radText').forEach(function(item){
+                let classExist = false;
+                item.classList.forEach(function(item){
+                    if(item == 'fadeRadTxt'){
+                        classExist = true;
+                    }
+                })
+                if(!classExist){
+                    item.classList.add('fadeRadTxt');
+                }
+            })
+            e.target.nextSibling.classList.remove('fadeRadTxt');
         }
         
     }

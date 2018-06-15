@@ -30,9 +30,9 @@
                 </div>
             </div>
             <div class="radioSearchButtons">
-                    <input class="radBut" name="searchType" type="radio" checked="checked"><div class="radText" >Shortest</div>
-                    <input class="radBut" name="searchType" type="radio"><div class="radText">Top Rated</div>
-                    <input class="radBut" name="searchType" type="radio"><div class="radText">Random</div>
+                    <input @click="checkRadTxtColor" class="radBut" name="searchType" type="radio"><div class="radText fadeRadTxt" >Shortest</div>
+                    <input @click="checkRadTxtColor" class="radBut" name="searchType" type="radio"><div class="radText fadeRadTxt">Top Rated</div>
+                    <input @click="checkRadTxtColor" class="radBut" name="searchType" type="radio" checked="checked"><div class="radText">Random</div>
                     <button class="searchButton" @click="searchMovies">Pick Film</button>
             </div>
         </div>
