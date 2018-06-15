@@ -39,7 +39,6 @@ let vm = new Vue({
             }
 
         },deleteMovie: function(e){
-            console.log(e.target.attributes.value.value)
 
             this.userMovies.splice(e.target.attributes.value.value, 1);
             this.userMovies.map(function(item){
@@ -78,9 +77,6 @@ let vm = new Vue({
             if(vm.movieResults.length == vm.userMovies.length){ this.pickFilm()};
         },
         pickFilm: function(){
-            console.log(vm.userWant);
-            console.log(vm.movieResults);
-
 
             if(vm.userWant == 0){
                 vm.movieResults.map(function(item, int){
@@ -109,7 +105,6 @@ let vm = new Vue({
                         let score = parseFloat(item.imdbRating);
                         vm.moviesBestOrder.map(function(item2, int2){
                             let currFinished = false;
-                            console.log(score, ' score', item2.imdbRating, 'oldFilm')
                             if((parseFloat(item2.imdbRating) < score && !currFinished)){
                                 vm.moviesBestOrder.splice(int2, 0, item);
                                 currFinished = true;
@@ -122,7 +117,15 @@ let vm = new Vue({
                     
                 })
             }else if(vm.userWant == 2){
-
+                while(vm.chosenMovieInfo.name == '' || vm.movieResults.length < 1){
+                    let rNum = Math.floor(Math.random() * vm.movieResults.length);
+                    console.log(rNum);
+                    if(vm.movieResults[rNum].Response == 'True'){
+                        vm.getFilm(vm.movieResults[rNum]);
+                    }else{
+                        vm.movieReults.splice(rNum, 1);
+                    }
+                }
             }
             let tmpArr = [];
             vm.moviesBestOrder.map(function(item, int){
@@ -131,7 +134,6 @@ let vm = new Vue({
                 }
             })
             vm.moviesBestOrder = tmpArr;
-            console.log(vm.moviesBestOrder);
             if(vm.moviesBestOrder.length > 0){
                 vm.getFilm(vm.moviesBestOrder[0]);
             }
@@ -157,8 +159,6 @@ let vm = new Vue({
                     vm.chosenMovieInfo.score += '<i class="fas fa-star-half"></i>';
                 }
             }
-            console.log(vm.chosenMovieInfo.rating)
-
             document.querySelector('.movieResults').classList.remove('pmHidden');
         }
         
