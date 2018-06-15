@@ -87,6 +87,7 @@ let vm = new Vue({
                 }else{
                     console.log('no good films found');
                     vm.clearData();
+                    vm.noFilms();
                 }
             };
         },
@@ -197,6 +198,9 @@ let vm = new Vue({
                 }
             })
             e.target.nextSibling.classList.remove('fadeRadTxt');
+        },
+        noFilms: function(){
+            document.querySelector('.moviesIn').classList.add('shakeDiv');
         }
         
     }

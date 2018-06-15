@@ -17,7 +17,7 @@ button:hover{
 
 .pageTitle{
     color:  #0D6778;
-    font-size: 3em;
+    font-size: 3.5em;
     font-weight: bold;
     text-align: center;
     margin-top: 40px; 
@@ -32,10 +32,11 @@ button:hover{
 }
 
 .moviesInput{
-    font-size: 1.5em;
+    font-size: 1.8em;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
     border: 1px solid rgb(143, 143, 143);
+    border-right: none;
 }
 
 .moviesInput:focus{
@@ -43,7 +44,7 @@ button:hover{
 }
 
 .moviesButton{
-    font-size: 1.5em;
+    font-size: 1.8em;
     background: #4860AF;
     color: white;
     border: 1px solid #4860AF;
@@ -209,6 +210,20 @@ button:hover{
 .fadeRadTxt{
     color: rgb(190, 207, 216);
 }
+
+@keyframes shaker {
+    0%   {margin-left: 0px}
+    20%  {margin-left: -40px}
+    40%  {margin-left: 40px;}
+    60%  {margin-left: -40px}
+    80%  {margin-left: 40px}
+    100% {margin-left: 0px}
+}
+
+.shakeDiv{
+    animation: shaker 1s;
+}
+
 
 
 .pmHidden{
