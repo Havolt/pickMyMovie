@@ -16,10 +16,9 @@ button:hover{
 }
 
 .pageTitle{
-    color:  rgb(56, 144, 189);
+    color:  #0D6778;
     font-size: 3em;
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgb(185, 185, 185);
     text-align: center;
     margin-top: 40px; 
 }
@@ -33,11 +32,32 @@ button:hover{
 }
 
 .moviesInput{
-    font-size: 1.4em;
+    font-size: 1.5em;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border: 1px solid rgb(143, 143, 143);
+}
+
+.moviesInput:focus{
+    outline: none;
 }
 
 .moviesButton{
-    font-size: 1.4em;
+    font-size: 1.5em;
+    background: #4860AF;
+    color: white;
+    border: 1px solid #4860AF;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.moviesButton:hover{
+    background: #2F49A0;
+    border: 1px solid #2F49A0;
+}
+
+.moviesButton:focus{
+    outline: none;
 }
 
 .userAllMovies{
@@ -101,12 +121,23 @@ button:hover{
 }
 
 .searchButton{
-    font-size: 1.2em;
+    font-size: 1.4em;
     border-radius: 2px;
     margin-left: 14px;
+    background: #4860AF;
+    color: white;
+    border: 1px solid white;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.searchButton:hover{
+    background: #2F49A0;
+    border: 1px solid white;
 }
 
 .radText{
+    font-size: 1.2em;
     display: inline-block;
 }
 

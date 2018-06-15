@@ -4,7 +4,7 @@ let vm = new Vue({
     el: '#vApp',
     data: {
         test: 'hello world',
-        pageTitle: 'Pick My Movie',
+        pageTitle: 'Film Decider',
         buttonTxt: 'Add Film',
         userMovies: [],
         userMovieInput: '',
@@ -74,7 +74,21 @@ let vm = new Vue({
                 vm.movieResults.push({badTitle: true});
             }
 
-            if(vm.movieResults.length == vm.userMovies.length){ this.pickFilm()};
+            if(vm.movieResults.length == vm.userMovies.length){ 
+
+                for(let i = 0; i < vm.movieResults.length; i++){
+                    if(vm.movieResults[i].badTitle){
+                        vm.movieResults.splice(i, 1);
+                        i--;
+                    }
+                }
+                if(vm.movieResults.length > 0){
+                    this.pickFilm()
+                }else{
+                    console.log('no good films found');
+                    vm.clearData();
+                }
+            };
         },
         pickFilm: function(){
 
@@ -160,6 +174,15 @@ let vm = new Vue({
                 }
             }
             document.querySelector('.movieResults').classList.remove('pmHidden');
+            vm.clearData()
+        },
+        clearData: function(){
+            this.userMovies = [];
+            this.userMovieInput = '';
+            this.movieResults = [];
+            this.userWant = 0;
+            this.moviesBestOrder = [];
+            document.querySelector('.movieSearchSec').classList.add('pmHidden');
         }
         
     }
