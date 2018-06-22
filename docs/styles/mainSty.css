@@ -1,0 +1,235 @@
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.vApp{
+    width: 90%;
+    margin: 0 auto;
+    box-align: center;
+    max-width: 800px;
+}
+
+.pageTitle{
+    color:  #0D6778;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px; 
+}
+
+.moviesIn{
+    margin: 12px auto;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.moviesInput{
+    font-size: 1.8em;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border: 1px solid rgb(143, 143, 143);
+    border-right: none;
+}
+
+.moviesInput:focus{
+    outline: none;
+}
+
+.moviesButton{
+    font-size: 1.8em;
+    background: #4860AF;
+    color: white;
+    border: 1px solid #4860AF;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.moviesButton:hover{
+    background: #2F49A0;
+    border: 1px solid #2F49A0;
+}
+
+.moviesButton:focus{
+    outline: none;
+}
+
+.userAllMovies{
+    border: 1px solid rgb(105, 105, 105);
+    background: rgb(210, 214, 216);
+    padding: 4px;
+    margin-top: 20px;
+}
+
+.userAllMovies > div{
+    display: inline-block;
+}
+
+.userMovieCn{
+    border: 1px solid rgb(168, 168, 168);
+    display: inline-block;
+    padding: 3px 12px 3px 12px;
+    position: relative;
+    background: white;
+    margin-right: 4px;
+    margin-bottom: 2px;
+}
+
+.userMovieCross{
+    float: right;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    font-size: 0.9em;
+    color: grey;
+}
+
+.userMovieCross:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.userMovieName{
+    font-size: 1.2em;
+}
+
+.movieSearchSec{
+    margin: 0 auto;
+}
+
+.radioSearchButtons{
+    float: right;
+    padding: 4px;
+    border: 1px solid rgb(105, 105, 105);
+    background: rgb(56, 144, 189);
+    border-top: none;
+    color: white;
+}
+
+.radBut{
+    color: orange;
+}
+
+.radBut:hover{
+    cursor: pointer;
+}
+
+.searchButton{
+    font-size: 1.4em;
+    border-radius: 2px;
+    margin-left: 14px;
+    background: #4860AF;
+    color: white;
+    border: 1px solid white;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.searchButton:hover{
+    background: #2F49A0;
+    border: 1px solid white;
+}
+
+.radText{
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.movieResults{
+    background: rgb(56, 144, 189);
+    margin-top: 60px;
+    padding: 20px 0;
+    border-radius: 4px;
+}
+
+.movieInfo{
+    width: 90%;
+    margin: 0 auto;
+    background: white;
+}
+
+.infoPoster{
+    width: 40%;
+    display: inline-block;
+}
+
+.infoPoster > img {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2% 3%;
+}
+
+.infoMain{
+    width: 55%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 2%;
+}
+
+.infoTitle{
+    font-size: 2.2em;;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+
+.infoDetails{
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    font-size: 0.8em;
+}
+
+.infoDetails > div{
+    display: inline-block;
+    color: rgb(151, 151, 151);
+    font-size: 1.2em;
+}
+
+.infoPlot{
+    margin-bottom: 16px;
+}
+
+.infoPeople > div{
+    margin-bottom: 10px;
+}
+
+
+.redBorder{
+    border: 1px solid rgb(230, 66, 66);
+    background: rgb(231, 222, 222);
+}
+
+.fadeRadTxt{
+    color: rgb(190, 207, 216);
+}
+
+@keyframes shaker {
+    0%   {margin-left: 0px}
+    20%  {margin-left: -40px}
+    40%  {margin-left: 40px;}
+    60%  {margin-left: -40px}
+    80%  {margin-left: 40px}
+    100% {margin-left: 0px}
+}
+
+.shakeDiv{
+    animation: shaker 1s;
+}
+
+
+
+.pmHidden{
+    display: none;
+}
+
+.pmBold{
+    font-weight: bold;
+}

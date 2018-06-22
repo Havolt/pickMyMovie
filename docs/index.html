@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pick My Movie</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link rel="stylesheet" href="styles/mainSty.css">
+</head>
+<body>
+
+    <div id="vApp" class="vApp">
+        <div class="pageTitle">{{ pageTitle }}</div>
+        <div class="moviesIn">
+            <input class="moviesInput" v-on:keyup.enter="addFilmFunc" placeholder="Enter film.." v-model="userMovieInput" type="text">
+            <button class="moviesButton" v-on:click="addFilmFunc">{{ buttonTxt }}</button>
+        </div>
+
+        <div class="movieSearchSec pmHidden">
+            <div class="userAllMovies">
+                <div v-for="movie in userMovies"> 
+                    <div class="userMovieCn"> 
+                        <div class="userMovieName">{{ movie.name }}</div> 
+                        <div v-bind:value="movie.num" class="userMovieCross" v-on:mouseover="crossMOver" v-on:mouseout="crossMOff" @click="deleteMovie">&times;</div>
+                    </div>
+                    <div class="searchCn">
+                    </div> 
+                </div>
+            </div>
+            <div class="radioSearchButtons">
+                    <input @click="checkRadTxtColor" class="radBut" name="searchType" type="radio"><div class="radText fadeRadTxt" >Shortest</div>
+                    <input @click="checkRadTxtColor" class="radBut" name="searchType" type="radio"><div class="radText fadeRadTxt">Top Rated</div>
+                    <input @click="checkRadTxtColor" class="radBut" name="searchType" type="radio" checked="checked"><div class="radText">Random</div>
+                    <button class="searchButton" @click="searchMovies">Pick Film</button>
+            </div>
+        </div>
+
+        <div class="movieResults pmHidden">
+            <div class="movieInfo">
+                <div class="infoPoster">
+                    <img v-bind:src="chosenMovieInfo.posterLink" alt="">
+                </div>
+                <div class="infoMain">
+                    <div class="infoTitle">
+                        <div>{{ chosenMovieInfo.name }}</div>
+                    </div>
+                    <div class="infoDetails">
+                        <div>{{ chosenMovieInfo.year }}</div>
+                        <div>&bull;</div>
+                        <div>{{ chosenMovieInfo.genre }}</div>
+                        <div>&bull;</div>
+                        <div>{{ chosenMovieInfo.runTime }}</div>
+                    </div>
+                    <div class="infoPlot">{{ chosenMovieInfo.plot }}</div>
+                    <div class="infoPeople">
+                        <div><span class="pmBold">Director:</span></b>{{ chosenMovieInfo.director }}</div>
+                        <div><span class="pmBold">Cast:</span></b>{{ chosenMovieInfo.actors }}</div>
+                    </div>
+                    <div class="infoScore" v-html="chosenMovieInfo.score"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <script src="scripts/mainScr.js"></script>
+
+</body>
+</html>
